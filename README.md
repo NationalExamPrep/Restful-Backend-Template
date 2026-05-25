@@ -211,6 +211,12 @@ curl http://localhost:5000/api/auth/me \
 curl http://localhost:5000/health
 ```
 
-## 📄 License
+## � Quick Links
+
+- **Health Check**: http://localhost:5000/health
+- **API Documentation (Swagger)**: http://localhost:5000/api-docs
+- **API Base URL**: http://localhost:5000/api
+
+## �📄 License
 
 MIT
