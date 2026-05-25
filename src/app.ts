@@ -2,7 +2,9 @@ import express, { Application } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import swaggerUi from 'swagger-ui-express';
 import { config } from './config/env';
+import { swaggerSpec } from './config/swagger';
 import { logger } from './middleware/logger.middleware';
 import { errorHandler } from './middleware/errorHandler.middleware';
 import { notFound } from './middleware/notFound.middleware';
@@ -34,7 +36,33 @@ app.use(express.urlencoded({ extended: true }));
 // Logger middleware
 app.use(logger);
 
-// Health check route
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+/**
+ * @swagger
+ * /health:
+ *   get:
+ *     summary: Health check endpoint
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Server is running
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Server is running
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ */
 app.get('/health', (req, res) => {
   res.status(200).json({
     success: true,

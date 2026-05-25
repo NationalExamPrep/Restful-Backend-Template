@@ -14,6 +14,7 @@ Production-ready, reusable Express.js backend with TypeScript, Prisma, JWT authe
 - **Clean Architecture**: Modular structure with services layer
 - **Error Handling**: Global error handler with custom AppError class
 - **Logging**: Request logger middleware
+- **API Documentation**: Interactive Swagger/OpenAPI documentation
 
 ## 📁 Project Structure
 
@@ -75,6 +76,25 @@ npm run dev
 npm run build
 npm start
 ```
+
+## 📚 API Documentation
+
+Once the server is running, access the interactive Swagger documentation at:
+
+**http://localhost:5000/api-docs**
+
+The Swagger UI provides:
+- Complete API endpoint documentation
+- Request/response schemas with examples
+- Interactive API testing interface
+- Authentication support (JWT Bearer token)
+- Try out endpoints directly from the browser
+
+To use protected endpoints in Swagger:
+1. Click the "Authorize" button at the top
+2. Enter your JWT token in the format: `Bearer <your-token>`
+3. Click "Authorize" and close the dialog
+4. Now you can test protected endpoints
 
 ## 📡 API Endpoints
 
@@ -183,6 +203,7 @@ curl http://localhost:5000/api/auth/me \
 - Helmet
 - CORS
 - express-rate-limit
+- Swagger (swagger-jsdoc, swagger-ui-express)
 
 ## 🚦 Health Check
 
