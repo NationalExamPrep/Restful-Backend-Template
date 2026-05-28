@@ -25,21 +25,6 @@ async function main() {
 
   console.log('✅ Created admin user:', admin.email);
 
-  // Create attendant user
-  const attendant = await prisma.user.upsert({
-    where: { email: 'attendant@example.com' },
-    update: {},
-    create: {
-      email: 'attendant@example.com',
-      password: hashedUserPassword,
-      firstName: 'John',
-      lastName: 'Attendant',
-      role: UserRole.ATTENDANT,
-    },
-  });
-
-  console.log('✅ Created attendant user:', attendant.email);
-
   // Create regular user
   const user = await prisma.user.upsert({
     where: { email: 'user@example.com' },
@@ -60,7 +45,6 @@ async function main() {
   console.log('\n🎉 Seeding completed successfully!');
   console.log('\n📝 Demo Credentials:');
   console.log('   Admin: admin@example.com / Admin123!');
-  console.log('   Attendant: attendant@example.com / User123!');
   console.log('   User: user@example.com / User123!');
 }
 

@@ -42,7 +42,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('TVET Exam API')
     .setDescription(
-      'RESTful API template for TVET practical exams. This API provides authentication, CRUD operations, pagination, and role-based access control.',
+      'RESTful API template for TVET practical exams. This API provides authentication, user management, file uploads, and role-based access control. Add your exam-specific endpoints here.',
     )
     .setVersion('1.0')
     .addBearerAuth(
@@ -56,12 +56,10 @@ async function bootstrap() {
       },
       'JWT-auth',
     )
-    .addTag('auth', 'Authentication endpoints')
+    .addTag('auth', 'Authentication endpoints (login, signup)')
     .addTag('users', 'User management endpoints')
-    .addTag('items', 'Item CRUD operations (example entity)')
-    .addTag('tags', 'Tag management (many-to-many example)')
-    .addTag('reports', 'Reports and dashboard statistics')
-    .addTag('Upload', 'File upload and download')
+    .addTag('upload', 'File upload and download')
+    // Add your exam-specific tags here
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

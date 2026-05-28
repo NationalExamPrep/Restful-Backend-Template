@@ -57,7 +57,8 @@ Once running, visit:
 src/
 ├── auth/           # Authentication (JWT, login, signup)
 ├── users/          # User management
-├── items/          # Example CRUD module
+├── upload/         # File upload handling
+├── email/          # Email service
 ├── common/         # Shared utilities, guards, decorators
 ├── prisma/         # Prisma service
 ├── app.module.ts   # Root module
@@ -68,12 +69,14 @@ src/
 
 1. Update `prisma/schema.prisma` with your model
 2. Run `pnpm prisma migrate dev --name add-your-entity`
-3. Copy the `items` module as a template
-4. Update DTOs, service, and controller
+3. Generate a new module using NestJS CLI:
+   ```bash
+   nest g resource your-entity
+   ```
+4. Update DTOs, service, and controller with your business logic
 5. Register the module in `app.module.ts`
 
 ## Default Credentials
 
 - Admin: `admin@example.com` / `Admin123!`
-- Attendant: `attendant@example.com` / `User123!`
 - User: `user@example.com` / `User123!`

@@ -34,8 +34,8 @@ export class UsersController {
   }
 
   @Get()
-  @Roles(UserRole.ADMIN, UserRole.ATTENDANT)
-  @ApiOperation({ summary: 'Get all users (Admin/Attendant only)' })
+  @Roles(UserRole.ADMIN)
+  @ApiOperation({ summary: 'Get all users (Admin only)' })
   @ApiResponse({ status: 200, description: 'List of all users' })
   findAll() {
     return this.usersService.findAll();
