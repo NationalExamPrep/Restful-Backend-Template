@@ -58,7 +58,7 @@ async function bootstrap() {
     )
     .addTag('auth', 'Authentication endpoints (login, signup)')
     .addTag('users', 'User management endpoints')
-    .addTag('upload', 'File upload and download')
+    .addTag('Upload', 'File upload and download')
     // Add your exam-specific tags here
     .build();
 
